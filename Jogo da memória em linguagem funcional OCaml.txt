@@ -1,0 +1,32 @@
+Jogo da memória em linguagem funcional OCaml 
+
+- O jogador escolhe dentre as três opções qual nível do jogo
+	(1) Fácil -   matriz 4x3
+	(2) Médio -   matriz 4x4
+	(3) Difícil - matriz 5x5
+
+- Gerar uma lista de números randomicos do tamanho da matriz/2
+
+- Duplicar estes números em uma lista
+
+- Embaralhar a lista
+
+- Construir a matriz resposta 
+
+- Imprimir uma matriz preenchida por X
+
+- Pedir que o usuário digite uma coordenada 
+
+- Exibir o número existente nesta coordenada na matriz
+
+- Pedir que o usuário digite outra coordenada 
+
+- Exibir o número existente nesta coordenada na matriz
+
+- Verificar se os números descoberto são iguais
+	- Caso sejam iguais guardar a imagem desta matriz
+		- Esta matriz será printada para o usuário a partir deste momento
+	- Caso não sejam iguais, printa a última matriz válida
+
+- Contar em uma variável a quantidade de acerto, quando o número de acerto for igual ao tamanho da matriz/2,
+	 o usuário terminou o jogo.
