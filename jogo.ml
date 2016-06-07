@@ -33,7 +33,7 @@ begin
 end
 ;;
 
-(* PRINT MATRIX INT*)
+(* print matriz int*)
 let rec print_matrix myMatrix = match myMatrix with
 | [] -> print_string ""
 | head::body ->
@@ -43,7 +43,7 @@ begin
 end
 ;;
 
-(* PRINT LIST INT *)
+(* print list String *)
 let rec print_list_string myList = match myList with
 	| [] -> print_endline ""
 	| head::body -> 
@@ -54,7 +54,7 @@ let rec print_list_string myList = match myList with
 	end
 ;;
 
-(* PRINT MATRIX INT*)
+(* print matrix int*)
 let rec print_matrix_string myMatrix = match myMatrix with
 	| [] -> print_string ""
 	| head::body ->
@@ -64,7 +64,6 @@ let rec print_matrix_string myMatrix = match myMatrix with
 	end
 ;;
 
-(* print_matrix_string(matStr);; *)
 
 (* ECONTRA UM ELEMENTO NA LISTA *)
 let rec find_list x lista =
@@ -94,7 +93,7 @@ let rec find_element_matrix lin col matrix =
 	| head::body -> if (lin > 1) then (find_element_matrix (lin-1) col body) else find col head
 ;;
 
-
+(* Insere um elemento na lista *)
 let rec insert_at x n lista =
 	match lista with
 	| [] -> [x]
@@ -135,7 +134,6 @@ let troca_elemento elemento lin col matrix_list =
 ;;
 
 
-
 let rec jogo contador fimJogo matrizResposta matrizJogo acertos =
 	print_matrix matrizJogo;
 	let x1 = ler_coordenada "uma coordenada para linha" in
@@ -143,7 +141,7 @@ let rec jogo contador fimJogo matrizResposta matrizJogo acertos =
 	Printf.printf("1º Elemento: %d: \n") (find_element_matrix x1 y1 matrizResposta);
 	let x2 = ler_coordenada "outra coordenada para linha" in
 	let y2 = ler_coordenada "outra coordenada para coluna" in
-	Printf.printf("2º Elemento: %d: \n") (find_element_matrix x1 y1 matrizResposta);
+	Printf.printf("2º Elemento: %d: \n") (find_element_matrix x2 y2 matrizResposta);
 	let acerto = verifica_acerto x1 y1 x2 y2 matrizResposta in
 	if (acerto < 0) then print_string "\nErrou\n" else print_string "\nAcertou\n";
 	if (acerto < 0) then (jogo (contador) fimJogo matrizResposta matrizJogo acertos)
@@ -151,11 +149,13 @@ let rec jogo contador fimJogo matrizResposta matrizJogo acertos =
 		 let matrizJogo =  troca_elemento acerto x2 y2 matrizJogo in
 
 
-	if ((contador < fimJogo) && (acerto > 0)) then (jogo (contador+1) fimJogo matrizResposta matrizJogo acertos) else print_string "Fim de jogo \n"
+	if ((contador < fimJogo) && (acerto > 0)) then (jogo (contador+1) fimJogo matrizResposta matrizJogo acertos) else print_matrix matrizJogo
 ;;
 
 let main =
-print_string " === Jogo iniciado === \n";
-print_matrix matrizResposta;
-print_string "\n";
-jogo 0 6 matrizResposta matrizInicial [];
+	print_string " === Jogo iniciado === \n";
+	print_matrix matrizResposta;
+	print_string "\n";
+	jogo 0 5 matrizResposta matrizInicial [];
+	print_matrix matrizInicial;
+	print_string "Você ganhou\n"
